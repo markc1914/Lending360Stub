@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+        classpath 'mysql:mysql-connector-java:5.1.24'
+
+        
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'gs-rest-service'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")  // websvc
+    compile("org.springframework.boot:spring-boot-starter-jdbc") //DB
+    compile("org.springframework.boot:spring-boot-starter-security")  // Security
+    compile("org.springframework:spring-test:4.0.3.RELEASE")  // Unit test
+    compile("org.springframework.ws:spring-ws-core:2.2.2.RELEASE") // Web service
+    compile("org.springframework.ws:spring-ws-support:2.2.2.RELEASE") // Web service
+    compile("mysql:mysql-connector-java:5.1.24")           // DB,mysql
+    compile("junit:junit:4.11"); 
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
